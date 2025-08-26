@@ -1,763 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hrishikesh Bharadwaj - Industrial Automation Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2c5530;
-            --secondary-color: #4a7c59;
-            --accent-color: #90ee90;
-            --text-dark: #333;
-            --text-light: #666;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px var(--shadow);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .hero-content .description {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: white;
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: transform 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Section Styling */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            margin: 1rem auto 0;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--bg-light);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid white;
-            box-shadow: 0 10px 30px var(--shadow);
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px var(--shadow);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: transform 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-            color: var(--text-light);
-        }
-
-        .skill-list li:last-child {
-            border-bottom: none;
-        }
-
-        /* Experience Section */
-        .experience {
-            background: var(--bg-light);
-        }
-
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            margin: 2rem 0;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px var(--shadow);
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -20px;
-            top: 2rem;
-            width: 16px;
-            height: 16px;
-            background: var(--primary-color);
-            border-radius: 50%;
-        }
-
-        .timeline-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .company {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .duration {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 1.5rem;
-        }
-
-        .project-header h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .project-category {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-description {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            background: var(--accent-color);
-            color: var(--primary-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            transition: background 0.3s;
-            text-decoration: none;
-            color: white;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--accent-color);
-            color: var(--primary-color);
-            border-radius: 50%;
-        }
-
-        .contact-details h4 {
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-details span {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hrishikesh Bharadwaj - Industrial Automation Engineer</title>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #1b4332;   /* Deep bottle green */
+      --secondary-color: #2d6a4f; /* Fresh green */
+      --accent-color: #95d5b2;    /* Mint green accent */
+      --text-dark: #212529;
+      --text-light: #6c757d;
+      --bg-light: #f8f9fa;
+      --white: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--bg-light);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px var(--shadow);
+      transition: background 0.3s;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-content h1 span {
+      color: var(--accent-color);
+    }
+
+    .hero-content .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .hero-content .description {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      background: var(--white);
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--primary-color);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about {
+      background: var(--bg-light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .profile-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 8px solid white;
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .contact .section-title {
+      color: white;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      transition: background 0.3s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .contact-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      border-radius: 50%;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">Hrishikesh Bharadwaj</div>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">Hrishikesh Bharadwaj</div>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <h1>Hi, I'm <span>Hrishikesh Bharadwaj</span></h1>
+        <p class="subtitle">🌿 Industrial Automation Engineer</p>
+        <p class="description">6+ Years of Excellence in SCADA Development & Industrial Process Control</p>
+        <a href="#contact" class="cta-button" data-aos="zoom-in">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section about">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">About Me</h2>
+      <div class="about-grid">
+        <div data-aos="fade-right">
+          <img src="me.PNG" alt="Hrishikesh Bharadwaj" class="profile-image">
+          <div class="stats">
+            <div class="stat-card" data-aos="zoom-in"><span class="stat-number">6+</span><span class="stat-label">Years Experience</span></div>
+            <div class="stat-card" data-aos="zoom-in"><span class="stat-number">Gold</span><span class="stat-label">Ignition Certified</span></div>
+            <div class="stat-card" data-aos="zoom-in"><span class="stat-number">15+</span><span class="stat-label">Projects Delivered</span></div>
+            <div class="stat-card" data-aos="zoom-in"><span class="stat-number">3</span><span class="stat-label">Languages</span></div>
+          </div>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Hrishikesh Bharadwaj</h1>
-                <p class="subtitle">Industrial Automation Engineer</p>
-                <p class="description">6+ Years of Excellence in SCADA Development & Industrial Process Control</p>
-                <a href="#contact" class="cta-button">Get In Touch</a>
-            </div>
+        <div class="about-text" data-aos="fade-left">
+          <p>I'm a proficient Industrial Automation Engineer with over 6 years of specialized experience in SCADA development. My expertise lies in optimizing operational efficiency and seamlessly controlling industrial processes across automotive, life sciences, and manufacturing sectors.</p>
+          <p>As a Gold Ignition certified professional, I excel at tailoring innovative solutions to client needs. My journey has taken me from a Machine Operator to SCADA Manager, where I've led teams, managed complex projects, and driven organizational success through collaboration.</p>
+          <p>I'm passionate about pushing the boundaries of industrial automation and always eager to innovate in this rapidly evolving field.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Hrishikesh Bharadwaj" class="profile-image">
-                    <div class="stats">
-                        <div class="stat-card">
-                            <span class="stat-number">6+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">Gold</span>
-                            <span class="stat-label">Ignition Certified</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-label">Projects Delivered</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">3</span>
-                            <span class="stat-label">Languages</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <p>I'm a proficient Industrial Automation Engineer with over 6 years of specialized experience in SCADA development. My expertise lies in optimizing operational efficiency and seamlessly controlling industrial processes across various sectors including automotive, life sciences, and manufacturing.</p>
-                    
-                    <p>As a Gold Ignition certified professional, I excel at tailoring innovative solutions to meet specific client needs. My journey has taken me from a Machine Operator to SCADA Manager, where I've successfully led teams, managed complex projects, and driven organizational success through strategic collaboration.</p>
-                    
-                    <p>I'm passionate about pushing the boundaries of industrial automation and am always eager to innovate in this rapidly evolving field.</p>
-                </div>
-            </div>
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Let's Work Together</h2>
+      <div class="contact-content">
+        <div class="contact-info" data-aos="fade-right">
+          <h3>Ready to discuss your next project?</h3>
+          <p>I'm always interested in new opportunities and exciting projects in industrial automation. Let's connect and bring your automation vision to life.</p>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>SCADA Systems</h3>
-                    <ul class="skill-list">
-                        <li>Ignition SCADA (Gold Certified)</li>
-                        <li>AVEVA INTouch</li>
-                        <li>AVEVA System Platform</li>
-                        <li>Wonderware Historian</li>
-                        <li>Factory Talk View</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>PLC & Automation</h3>
-                    <ul class="skill-list">
-                        <li>Allen-Bradley ControlLogix</li>
-                        <li>Siemens S7-1500</li>
-                        <li>Omron CJ Series</li>
-                        <li>MicroLogix 1400</li>
-                        <li>SLC5 Systems</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Data & Analytics</h3>
-                    <ul class="skill-list">
-                        <li>MS SQL Server</li>
-                        <li>Power BI</li>
-                        <li>OPC Servers</li>
-                        <li>MQTT Protocol</li>
-                        <li>Data Acquisition Systems</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Manufacturing Systems</h3>
-                    <ul class="skill-list">
-                        <li>Manufacturing Execution Systems (MES)</li>
-                        <li>OEE & Downtime Tracking</li>
-                        <li>S88 Standards</li>
-                        <li>Process Control</li>
-                        <li>Industrial Communication</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="contact-links" data-aos="fade-left">
+          <a href="mailto:hrishikesh.bharadwaj0509@gmail.com" class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div><h4>Email</h4><span>hrishikesh.bharadwaj0509@gmail.com</span></div>
+          </a>
+          <a href="tel:+919538546750" class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div><h4>Phone</h4><span>+91 95385 46750</span></div>
+          </a>
+          <a href="https://linkedin.com/in/hrishikesh-bharadwaj-0509" target="_blank" class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div><h4>LinkedIn</h4><span>hrishikesh-bharadwaj-0509</span></div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div><h4>Location</h4><span>Bangalore, Karnataka, India</span></div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section experience">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>SCADA Manager</h3>
-                    <div class="company">SalVentures.tech</div>
-                    <div class="duration">Aug 2023 - Present</div>
-                    <p>Leading the design, implementation, and maintenance of SCADA systems for efficient production process control. Responsible for team leadership, stakeholder coordination, and SCADA solutions deployment facilitation.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>MES Manager</h3>
-                    <div class="company">Ola Electric (EV)</div>
-                    <div class="duration">May 2023 - Jul 2023</div>
-                    <p>Managed the implementation and continuous improvement of Manufacturing Execution System (MES). Collaborated with cross-functional teams to enhance manufacturing processes and productivity.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Senior Automation Engineer</h3>
-                    <div class="company">Axcend Automation and Software Solutions</div>
-                    <div class="duration">Nov 2018 - Mar 2023</div>
-                    <p>Advanced from Junior SCADA Engineer to Senior role over 4.5 years. Led numerous projects, showcasing proficiency in SCADA system development and project execution while mentoring teams.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Quality In-charge</h3>
-                    <div class="company">Axcend Automation</div>
-                    <div class="duration">Apr 2017 - Aug 2018</div>
-                    <p>Ensured quality standards in automation projects and systems implementation, laying the foundation for my advancement in the automation field.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>BOSCH India Data Acquisition</h3>
-                        <p class="project-category">Automotive Manufacturing</p>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">Developed comprehensive data acquisition and monitoring system for plant production, hosted on third-party website with real-time monitoring capabilities.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">ControlLogix</span>
-                            <span class="tech-tag">Wonderware InTouch</span>
-                            <span class="tech-tag">Historian</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Electroplating Process Migration</h3>
-                        <p class="project-category">Metal Processing</p>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">Successfully migrated electroplating process systems from legacy platforms, including Factory Talk view migration with S88 standards compliance.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">RSView 32</span>
-                            <span class="tech-tag">SLC5</span>
-                            <span class="tech-tag">Ignition SCADA</span>
-                            <span class="tech-tag">S88 Standards</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Chocolate Manufacturing System</h3>
-                        <p class="project-category">Food & Beverages</p>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">Implemented complete manufacturing control system for chocolate bars production with label printing integration and database interfacing.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">ControlLogix</span>
-                            <span class="tech-tag">Ignition SCADA</span>
-                            <span class="tech-tag">API Interface</span>
-                            <span class="tech-tag">MS SQL</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Head Lamps Manufacturing</h3>
-                        <p class="project-category">Automotive Industry</p>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">Implemented comprehensive manufacturing solution for truck head lamps with real-time monitoring, data acquisition, and Power BI reporting dashboard.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">ControlLogix</span>
-                            <span class="tech-tag">Ignition 8.0</span>
-                            <span class="tech-tag">MS SQL</span>
-                            <span class="tech-tag">Power BI</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Cell Culture Kit</h3>
-                        <p class="project-category">Life Sciences Laboratory</p>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">Designed and developed a specialized Cell Culture Kit for life science laboratory applications with integrated monitoring and control systems.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Ignition SCADA</span>
-                            <span class="tech-tag">MQTT</span>
-                            <span class="tech-tag">MS SQL</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Wastewater Treatment System</h3>
-                        <p class="project-category">Water Treatment</p>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">Developed PLC and HMI applications for wastewater treatment facility with comprehensive testing documentation and system integration.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">MicroLogix 1400</span>
-                            <span class="tech-tag">Siemens S7-1500</span>
-                            <span class="tech-tag">Omron CJ</span>
-                            <span class="tech-tag">Kepware</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+      });
+    });
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Let's Work Together</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Ready to discuss your next project?</h3>
-                    <p>I'm always interested in new opportunities and exciting projects in industrial automation. Let's connect and explore how we can work together to bring your automation vision to life.</p>
-                </div>
-                <div class="contact-links">
-                    <a href="mailto:hrishikesh.bharadwaj0509@gmail.com" class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <span>hrishikesh.bharadwaj0509@gmail.com</span>
-                        </div>
-                    </a>
-                    <a href="tel:+919538546750" class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <span>+91 95385 46750</span>
-                        </div>
-                    </a>
-                    <a href="https://linkedin.com/in/hrishikesh-bharadwaj-0509" target="_blank" class="contact-item">
-                        <div class="contact-icon">💼</div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <span>hrishikesh-bharadwaj-0509</span>
-                        </div>
-                    </a>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <h4>Location</h4>
-                            <span>Bangalore, Karnataka, India</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-    </script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      header.style.background = window.scrollY > 50
+        ? 'rgba(255, 255, 255, 0.98)'
+        : 'rgba(255, 255, 255, 0.95)';
+    });
+  </script>
 </body>
 </html>
